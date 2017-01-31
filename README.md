@@ -8,9 +8,9 @@ Stone Framework Versión: 2.0
   1. [Primeros Pasos](#primeros-pasos)
   1. [Configuración](#configuración)
   1. [Módulos](#structured-data-types)
-  1. [Patrones de diseño](#strings)
-  1. [Tipos de datos](#comentarios)
-  1. [Licencia](#LICENCIA.md)
+  1. [Patrones de diseño](#patrones-de-diseño)
+  1. [Tipos de datos](#tipos-de-datos)
+  1. [Licencia](#licencia)
 
 ## Qué es Stone Framework
 Toda construcción comienza por la piedra fundamental. Aquí es donde Stone Framework tiene un papel importante ya que nos ayuda avanzar rápidamente en nuestros proyectos Genexus.
@@ -58,10 +58,16 @@ Testeo unitario.
 
 **[Volver al inicio](#tabla-de-contenidos)**
 
-## Licencia
-
-A partir de la versión 2.0 de Stone Framework, se conviernte a una licencia de uso comercial la cual se describe en el siguiente documento:
+## Patrones de diseño
 
 [Licencia](LICENCIA.md)
+
+## Tipos de datos
+
+[Licencia](LICENCIA.md)
+
+## Licencia
+
+A partir de la versión 2.0 de Stone Framework, se conviernte a una licencia de uso comercial la cual se describe en el siguiente documento: [Licencia de StoneFramework](LICENCIA.md)
 
 **[Volver al inicio](#tabla-de-contenidos)**
