@@ -7,7 +7,7 @@ Stone Framework Versión: 2.0
   1. [Qué es Stone Framework](#Qué-es-Stone-Framework)
   1. [Primeros Pasos](#primeros-pasos)
   1. [Configuración](#configuración)
-  1. [Módulos](#structured-data-types)
+  1. [Módulos](#módulos)
   1. [Patrones de diseño](#patrones-de-diseño)
   1. [Tipos de datos](#tipos-de-datos)
   1. [Licencia](#licencia)
