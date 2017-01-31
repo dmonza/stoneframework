@@ -60,11 +60,11 @@ Testeo unitario.
 
 ## Patrones de diseño
 
-[Licencia](LICENCIA.md)
+**[Volver al inicio](#tabla-de-contenidos)**
 
 ## Tipos de datos
 
-[Licencia](LICENCIA.md)
+**[Volver al inicio](#tabla-de-contenidos)**
 
 ## Licencia
 

@@ -29,7 +29,7 @@ Propósito
 Convierte un importe numérico a letras.
 
 Sintaxis
-SGP_Business_AmountToText (Languages-in:&Lenguaje, Numeric-in:&Importe, Character-in:&Moneda, Character-out:&Texto)
+AmountToText (Languages-in:&Lenguaje, Numeric-in:&Importe, Character-in:&Moneda, Character-out:&Texto)
 &Lenguaje    : Lenguaje del texto generado. Se utiliza el dominio enumerado “Languages”.
 &Importe    : Importe a ser convertido a letras.
 &Moneda    : Moneda que aparecerá en el importe generado.
@@ -111,7 +111,7 @@ Más información en:
 http://es.wikipedia.org/wiki/Clave_%C3%9Anica_de_Identificaci%C3%B3n_Tributaria
 
 Sintaxis
-SGP_Business_Identificacion_ARCUIT_CD ( Character-in:&CUIT, Numeric-out:&CheckDigit)
+ARCUIT_CD ( Character-in:&CUIT, Numeric-out:&CheckDigit)
 
 &CUIT   : CUIT sobre el que se desea calcular su dígito verificador.
 
@@ -142,7 +142,7 @@ Más información en:
 https://en.wikipedia.org/wiki/Cadastro_de_Pessoas_F%C3%ADsicas
 
 Sintaxis
-SGP_Business_Identificacion_BRCPF_CD( Character-in:&CPF, Numeric-out:&CheckDigit)
+BRCPF_CD( Character-in:&CPF, Numeric-out:&CheckDigit)
 
 &CPF     : CPF sobre el que se desea calcular su dígito verificador.
 
@@ -173,7 +173,7 @@ Más información en:
 http://es.wikipedia.org/wiki/Documento_de_identidad
 
 Sintaxis
-SGP_Business_Identificacion_UYCI_CD ( Character-in:&CI, Numeric-out:&CheckDigit)
+UYCI_CD ( Character-in:&CI, Numeric-out:&CheckDigit)
 
 &CI        : CI para la cual se desea calcular su dígito verificador.
 
@@ -321,7 +321,7 @@ Valida un tipo de documento de identidad definido en el dominio enumerado “Ide
 Uruguayan CICPF BrasilCUIT ArgentinaCBU Argentina
 
 Sintaxis
-SGP_Business_ValidateID (IdentificationTypes-in:&IDType, Character-in:&ID_Number, Boolean-out:&IsValid)
+ValidateID (IdentificationTypes-in:&IDType, Character-in:&ID_Number, Boolean-out:&IsValid)
 
 &IDType              : Tipo de documento a validar. Basado en “IdentificationTypes”.
 &ID_Number    : Número de documento a validar. Character(20).
@@ -332,11 +332,11 @@ Retorno:
 
 Ejemplo
 ```javascript
-SGP_Business_ValidateID(IdentificationTypes.UruguayanCI, “55996612”, &IsValid)
+ValidateID(IdentificationTypes.UruguayanCI, “55996612”, &IsValid)
 
 &IsValid: true
 
-SGP_Business_ValidateID (IdentificationTypes.UruguayanCI, “55996616”, &IsValid)
+ValidateID (IdentificationTypes.UruguayanCI, “55996616”, &IsValid)
 
 &IsValid: false
 ```
@@ -363,12 +363,12 @@ Retorno:
 
 Ejemplo
 ```javascript
-SGP_Business_ValidateImage(“myimagen.jpg”, &IsValid)
+ValidateImage(“myimagen.jpg”, &IsValid)
 
 Resultado:
 &IsValid = true
 
-SGP_Business_ValidateImage(“myreporte.pdf”, &IsValid)
+ValidateImage(“myreporte.pdf”, &IsValid)
 
 Resultado:
 &IsValid = false
@@ -386,7 +386,7 @@ Procedimiento para la validación de una dirección un nombre.
 La validación chequea que existan al menos dos palabras separadas por un espacio.
 
 Sintaxis
-SGP_Business_ValidateName ( Character-in:&Name, Boolean-out:&IsValid)
+ValidateName ( Character-in:&Name, Boolean-out:&IsValid)
 
 &Email                 : Nombre a validar.
 
@@ -396,7 +396,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-SGP_Business_ValidateName ( “John Doe”, &IsValid)
+ValidateName ( “John Doe”, &IsValid)
 
 &IsValid = true
 ```
