@@ -36,7 +36,7 @@ Por más información:
 https://es.wikipedia.org/wiki/Sistema_de_numeraci%C3%B3n
 
 Sintaxis
-SGP_Tools_BaseChange(Character-in:&NumIn, Numeric-in:&BaseIn, Numeric-in:&BaseOut, Character-out:&NumOut)
+BaseChange(Character-in:&NumIn, Numeric-in:&BaseIn, Numeric-in:&BaseOut, Character-out:&NumOut)
 
 &NumIn    : Número de entrada, especificado en la base &BaseIn
 &BaseIn:  : Base de entrada
@@ -48,11 +48,11 @@ Retorno:
 
 Ejemplo
 ```javascript
-&NumOut = SGP_Tools_BaseChange( “1F”, 16, 10) // &NumOut = "31"
+&NumOut = BaseChange( “1F”, 16, 10) // &NumOut = "31"
 
-&NumOut = SGP_Tools_BaseChange( “1F”, 16, 8) // &NumOut = "37"
+&NumOut = BaseChange( “1F”, 16, 8) // &NumOut = "37"
 
-&NumOut = SGP_Tools_BaseChange( “1F”, 16, 2) // &NumOut = "11111"
+&NumOut = BaseChange( “1F”, 16, 2) // &NumOut = "11111"
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -68,7 +68,7 @@ Por más información se puede revisar:
 http://en.wikipedia.org/wiki/Internet_media_type
 
 Sintaxis
-SGP_Tools_ContentTypeByExt( Character-in:&Extension, Character-out:&ContentType)
+ContentTypeByExt( Character-in:&Extension, Character-out:&ContentType)
 
 &Extension        : Extensión de archivo, ej.: “pdf”
 
@@ -78,7 +78,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-SGP_Tools_ContentTypeByExt ( “pdf”, &ContentType)
+ContentTypeByExt ( “pdf”, &ContentType)
 
 Resultado:
 &ContentType=”application/pdf”
@@ -98,7 +98,7 @@ Por más información:
 https://en.wikipedia.org/?title=Hexadecimal
 
 Sintaxis
-SGP_Tools_DecToHex( Numeric(18)-in:&Decimal, Character-out:&Hex)
+DecToHex( Numeric(18)-in:&Decimal, Character-out:&Hex)
 
 &Decimal            : Numeric (18) – Valor en decimal.
 
@@ -108,7 +108,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-&Hex = SGP_Tools_DecToHex(  3917 )
+&Hex = DecToHex(  3917 )
 
 Resultado: 
 &Decimal = "F4D"
@@ -124,7 +124,7 @@ Propósito
 Obtener la extensión de un archivo desde su nombre.
 
 Sintaxis
-SGP_Tools_FileExtensionGet ( Character-in:&FileNameTemp, Character-out: &Extension)
+FileExtensionGet ( Character-in:&FileNameTemp, Character-out: &Extension)
 
 &FileNameTemp             : Character - Nombre de archivo.
 
@@ -134,7 +134,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-&Extension  = SGP_Tools_FileExtensionGet( “myarchivo.pdf”)
+&Extension  = FileExtensionGet( “myarchivo.pdf”)
 
 Resultado:
 &Extension  = “pdf”
@@ -151,7 +151,7 @@ Convertir un DateTime a Character con un determinado formato.
 
 Sintaxis
 
-SGP_Tools_FormattedDateString( DateTime-in:&DateTime, Character-in:&Picture, Character-out:&FormattedDate)
+FormattedDateString( DateTime-in:&DateTime, Character-in:&Picture, Character-out:&FormattedDate)
 
 &DateTime: DateTime – Fecha/Hora a convertir.
 &Picture: Character – Formato para convertir la fecha.
@@ -192,7 +192,7 @@ Por más información:
 https://en.wikipedia.org/?title=Hexadecimal
 
 Sintaxis
-SGP_Tools_HexToDec(Character-in:&Hex, Numeric(18)-out:&Decimal)
+HexToDec(Character-in:&Hex, Numeric(18)-out:&Decimal)
 
  
 
@@ -204,7 +204,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-&Decimal = SGP_Tools_ HexToDec( “F4D”)
+&Decimal =  HexToDec( “F4D”)
 
 Resultado:
 &Decimal = 3917
@@ -224,7 +224,7 @@ http://wiki.genexus.com/commwiki/servlet/wiki?RGB+Function
 https://es.wikipedia.org/wiki/RGB
 
 Sintaxis
-SGP_Tools_HexToRGB (Character-in:&HexColor, Numeric(8)-out:&RGBColor)
+HexToRGB (Character-in:&HexColor, Numeric(8)-out:&RGBColor)
 
 &HexColor         : Color en Hexadecimal. Debe especificarse en 6 caracteres.
 
@@ -234,7 +234,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-MyTextBlock.ForeColor = SGP_Tools_ HexToDec( “0000FF”)
+MyTextBlock.ForeColor = HexToDec( “0000FF”)
 
 Resultado:
 Se coloreará de azul MyTextBlock.
@@ -253,7 +253,7 @@ Más información:
 https://en.wikipedia.org/?title=ISO_8601
 
 Sintaxis
-SGP_Tools_ISO8601ToTime (Character-in:&iso, DateTime-out:&dt)
+ISO8601ToTime (Character-in:&iso, DateTime-out:&dt)
 
 &iso: Fecha y hora en formato ISO8601
 
@@ -263,7 +263,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-&dt  = SGP_Tools_ISO8601ToTime ( “2015-06-18T10:46:13”)
+&dt  = ISO8601ToTime ( “2015-06-18T10:46:13”)
 
 Resultado:
 &dt contendrá la fecha hora: 18/06/2015 10:46:13
@@ -279,7 +279,7 @@ Propósito
 Agrega un texto a una colección de mensajes.
 
 Sintaxis
-SGP_Tools_MessageAdd( Messages-in:&Messages, in:&MsgStr)
+MessageAdd( Messages-in:&Messages, in:&MsgStr)
 
 &Messages        : Colección de mensajes
 
@@ -302,7 +302,7 @@ Genera Log con toda una colección de mensajes.
 Para profundizar en la generación de logs con StoneFramework, revisar el proc. SGP_System_LogAdd
 
 Sintaxis
-SGP_Tools_MessagesLog( Character-in:&Program, LogLevels-in:&LogLevels, Messages-in:&Messages)
+MessagesLog( Character-in:&Program, LogLevels-in:&LogLevels, Messages-in:&Messages)
 
 &Program           : Programa que genera el log. Típicamente &Pgmname
 &LogLevels        : Nivel de log (DEBUG, INFO, WARN, etc.)
@@ -341,7 +341,7 @@ Tanto si se está utilizando un BC en la interface o si recibimos una colección
 Este procedimiento simplifica ésta tarea.
 
 Sintaxis
-SGP_Tools_MessagesShow( Messages-in:&Messages)
+MessagesShow( Messages-in:&Messages)
 
 &Messages        : Colección de mensajes
 
@@ -352,9 +352,9 @@ Ejemplo
 &ClienteBC.Save()
 
 if &ClienteBC.Success()
-   SGP_Tools_Commit()
+   Commit()
 else
-   SGP_Tools_MessagesShow.Call(&ClienteBC.GetMessages())
+   MessagesShow.Call(&ClienteBC.GetMessages())
 endif
 ```
 
@@ -368,14 +368,14 @@ Propósito
 Permite extraer los números existentes en un texto.
 
 Sintaxis
-SGP_Tools_OnlyNumbers(Character-in:&strin, Character-out:&Numbers)
+OnlyNumbers(Character-in:&strin, Character-out:&Numbers)
 
 &strin                   : Texto a procesar
 &Numbers         : Números encontrados en &strin
 
 Ejemplo
 ```javascript
-&Numbers  = SGP_Tools_OnlyNumbers(“MI CI ES 1.223.444/6”)
+&Numbers  = OnlyNumbers(“MI CI ES 1.223.444/6”)
 
 Resultado:
 &Numbers  = “12234446”
@@ -393,7 +393,7 @@ Repite una secuencia de caracteres N veces.
 Es una extensión de la función "Space" que repetía N veces un espacio.
 
 Sintaxis
-SGP_Tools_Repeat( Character-in:&Sequence, Numeric-in:&RepeatTimes, Character-out:&TextOut)
+Repeat( Character-in:&Sequence, Numeric-in:&RepeatTimes, Character-out:&TextOut)
 
 &Sequence: Secuencia de caracteres a repetir
 &RepeatTimes: Número de veces para repetir la secuencia
@@ -404,7 +404,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-&TextOut = SGP_Tools_Repeat ( “abc.”, 3)
+&TextOut = Repeat ( “abc.”, 3)
 
 Resultado:
 &TextOut = “abc.abc.abc.”
@@ -420,7 +420,7 @@ Propósito
 Extra los un conjunto de caracteres de un texto determinado. Se le agrega “…” al final.
 
 Sintaxis
-SGP_Tools_TextTruncate( Character-in:&TextIn, Numeric-in:&Len, Character-out:&TextOut)
+TextTruncate( Character-in:&TextIn, Numeric-in:&Len, Character-out:&TextOut)
 
 &TextIn                               : Texto a truncar
 &Len                     : Largo con el que deberá quedar el texto
@@ -431,7 +431,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-&TextOut = SGP_Tools_TextTruncate ( “Truncando un texto libre”, 10)
+&TextOut = TextTruncate ( “Truncando un texto libre”, 10)
 
 Resultado:
 &TextOut = “Truncan...”
@@ -450,7 +450,7 @@ Más información:
 https://en.wikipedia.org/?title=ISO_8601
 
 Sintaxis
-SGP_Tools_TimeToISO8601(DateTime-in:&dt, Character-out:&iso)
+TimeToISO8601(DateTime-in:&dt, Character-out:&iso)
 
 &dt                        : Fecha y hora a convertir.
 
@@ -461,7 +461,7 @@ Retorno:
 Ejemplo
 ```javascript
 // &DT contiene la fecha hora: 18/06/2015 10:46:13
-&IsoText  = SGP_Tools_TimeToISO8601(&dt)
+&IsoText  = TimeToISO8601(&dt)
 
 Resultado:
 &IsoText contendrá “2015-06-18T10:46:13”.
@@ -477,7 +477,7 @@ Propósito
 Extrae los un conjunto de caracteres de un texto determinado.
 
 Sintaxis
-SGP_Tools_ValidChars( Character-in:&group, Character-in:&textin, Character-out:&validchars)
+ValidChars( Character-in:&group, Character-in:&textin, Character-out:&validchars)
 
 &group                : Conjunto de caracteres a extraer
 &textin                : Texto a revisar
@@ -488,7 +488,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-&validchars = SGP_Tools_ValidChars(“aeiou”, “esto es una prueba”)
+&validchars = ValidChars(“aeiou”, “esto es una prueba”)
 
 Resultado:
 &validchars = “eoeuauea”

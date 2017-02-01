@@ -17,7 +17,7 @@ Propósito
 Obtiene el valor de una variable de ambiente del sistema operativo.
 
 Sintaxis
-SGP_System_EnvVarGet( Character-in:&Name, Character-out:&Value)
+EnvVarGet( Character-in:&Name, Character-out:&Value)
 
 &Name          : Nombre de la variable a retornar.
 
@@ -27,7 +27,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-&Valor = SGP_System_EnvVarGet( !"PATH")
+&Valor = EnvVarGet( !"PATH")
 
 // Resultado: C:\Windows;c:\....
 ```
@@ -46,7 +46,7 @@ Ya que Genexus puede generar una aplicación en diferentes lenguajes, a veces se
 Por ejemplo, alguna configuración que utiliza nuestro sistema debe ser diferente par a C# que para Java.
 
 Sintaxis
-SGP_System_Generator(out:&Generator)
+Generator(out:&Generator)
 
 Retorno:
 
@@ -55,7 +55,7 @@ Retorno:
 Ejemplo
 ```javascript
 // Variable basada en el dominio enumerado “Generators”
-&Generator = SGP_System_Generator()
+&Generator = Generator()
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -85,7 +85,7 @@ Notas:
 En .net se debe agregar “/r:bin\log4net.dll” a “Compiler flags” (propiedad del generador)Se necesitaría colaboración para agregar compatibilidad con Java.
 
 Sintaxis
-SGP_System_LogAdd ( LogLevels-in:&LogLevels, Character-in:&LogGroup, Character-in:&Program, Character-in:&LogText)
+LogAdd( LogLevels-in:&LogLevels, Character-in:&LogGroup, Character-in:&Program, Character-in:&LogText)
 
 &LogLevels        : Niveles de log basado en el dominio enumerado LogLevels (Fatal, Error, Warn, Info, Debug)
 &LogGroup        : Logger o grupo de logs. Particularmente Stone Framework realiza sus logs con el logger “StoneFramework”.
@@ -94,7 +94,7 @@ SGP_System_LogAdd ( LogLevels-in:&LogLevels, Character-in:&LogGroup, Character-i
 
 Ejemplo
 ```javascript
-SGP_System_LogAdd.Call( LogLevels.ERROR, "MyAppName", &Pgmname, “Usuario no autenticado” )
+LogAdd.Call( LogLevels.ERROR, "MyAppName", &Pgmname, “Usuario no autenticado” )
 ```
 
 Nota: El ejemplo generará un log tipo error para el logger “MyAppName” con “Usuario no autenticado”.
@@ -119,7 +119,7 @@ http://wiki.genexus.com/commwiki/servlet/wiki?GUID
 http://wiki.genexus.com/commwiki/servlet/wiki?GUID+data+type
 
 Sintaxis
-SGP_System_GUID ( Character-out:&GUIDStr)
+NewGUID ( Character-out:&GUIDStr)
 
 Retorno:
 
@@ -127,7 +127,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-&GUIDStr  = SGP_System_GUID ()
+&GUIDStr  = NewGUID ()
 
 // Resultado: “b7e69de0-b17d-48ad-9fcb-7e678985a6e0”
 ```
@@ -146,7 +146,7 @@ Es muy útil para archivos que se generan desde el sistema, como ser: pdf, excel
 Se utiliza la ruta para archivos temporales definida en “TempFilesPath” dentro de “StoneFrameworkConfig ”.
 
 Sintaxis
-SGP_System_TempFileName( Character-in:&FileName, Character-in:&Ext, Character-out:&FullName)
+TempFileName( Character-in:&FileName, Character-in:&Ext, Character-out:&FullName)
 
 &FileName: Nombre del archivo a ser creado (sin extensión).
 &Ext: Extensión del archivo
@@ -157,7 +157,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-&FullName = SGP_System_TempFileName ( “MiReporte”, “pdf”)
+&FullName = TempFileName ( “MiReporte”, “pdf”)
 
 Resultado:
 
@@ -181,7 +181,7 @@ C:\wwwroot\mysitioweb\web
 La ruta anterior es la retornada por este procedimiento y es muy útil para manejo de archivos en web.
 
 Sintaxis
-SGP_System_WebPath( Character-out:&webpath)
+WebPath( Character-out:&webpath)
 
 Retorno:
 
@@ -189,7 +189,7 @@ Retorno:
 
 Ejemplo
 ```javascript
-&Path = SGP_System_WebPath()
+&Path = WebPath()
 
 Resultado: C:\wwwroot\mysitioweb\web\
 ```
