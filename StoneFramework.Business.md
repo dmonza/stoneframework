@@ -1,5 +1,4 @@
 # StoneFramework.Business
-Funcionalidades relacionadas con el negocio
 
 ## Tabla de Contenidos
 

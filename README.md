@@ -39,6 +39,49 @@ En ciertas aplicaciones o ambientes de ejecución, algunos parámetros del frame
 
 Como se vio en [Primeros Pasos](#primeros-pasos), tanto en Stone Framework como en los patrones de diseño, se deben crear procedimientos de configuración en la raiz de la KB GeneXus basados en los que tierminan con el texto "Example". Esto evita sobre-escribirlos al consolidar una nueva versión del framework.
 
+### StoneFrameworkConfig
+
+Es conveniente que esté fuera de la estructura de carpetas de StoneFramework ya que va a tener las configuraciónes particulares para cada KB.
+
+Items de configuración
+General
+
+Ruta de archivos temporales.
+
+&SGP_ConfigType.TempFilesPath = !"..\PrivateTempStorage\"
+
+Files pattern
+
+Ruta de archivos Públicos.
+
+&SGP_ConfigType.Files.PublicFilesPath = !"PublicFiles\"
+
+Ruta de archivos Privados.
+&SGP_ConfigType.Files.PrivateFilesPath = !"..\PrivateFiles\"
+
+Time out por defecto de validez para links de archivos privados
+&SGP_ConfigType.Files.PrivateFilesTimeout = 300
+
+Serials Pattern
+
+Largo de series hexadecimales
+&SGP_ConfigType.Serials.HexLength = 8
+
+Caching
+
+Clave de encriptación. Utilizada cuando se desea encriptar el cache; ésto útlimo se decide cuando se llama a los proc. de cache, ej: CachingWebSessionSet.
+&SGP_ConfigType.Cache.EncryptionKey = !"C1F55DD20AE05D9ADF4988C4ADF70A8D"
+
+Time out por defecto
+&SGP_ConfigType.Cache.Timeout = 600
+
+Mail Settings
+
+Dentro de "&SGP_ConfigType.Mail" se encuentran todos los parámetros configurables para envío de mail.
+
+Revisar **EmailSendBase**
+
+
 **[Volver al inicio](#tabla-de-contenidos)**
 
 ## Módulos
@@ -68,6 +111,6 @@ Testeo unitario.
 
 ## Licencia
 
-A partir de la versión 2.0 de Stone Framework, se conviernte a una licencia de uso comercial la cual se describe en el siguiente documento: [Licencia de StoneFramework](LICENCIA.md)
+A partir de la versión 2.0, Stone Framework está licenciado de forma comercial según el documento: [Licencia de StoneFramework](LICENCIA.md)
 
 **[Volver al inicio](#tabla-de-contenidos)**
