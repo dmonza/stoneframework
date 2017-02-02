@@ -222,6 +222,12 @@ Más información:
 
 **[Volver al inicio](#tabla-de-contenidos)**
 
+## Links de interes
+
+- https://www.youtube.com/watch?v=nKhE2deCOWU
+- http://www.genexus.com/noticias/leer-noticia/presentamos-stone-framework-by-gproject-en-genexus-open?es
+- http://es.slideshare.net/genexus/rolling-the-stone-framework-daniel-monza
+
 ## Licencia
 
 A partir de la versión 2.0, Stone Framework está licenciado de forma comercial según el documento: [Licencia de StoneFramework](LICENCIA.md)
