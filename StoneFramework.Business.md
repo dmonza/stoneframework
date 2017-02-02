@@ -24,29 +24,30 @@ Dígito de control de CI Uruguay
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Convierte un importe numérico a letras.
 
-Sintaxis
-AmountToText (Languages-in:&Lenguaje, Numeric-in:&Importe, Character-in:&Moneda, Character-out:&Texto)
-&Lenguaje    : Lenguaje del texto generado. Se utiliza el dominio enumerado “Languages”.
-&Importe    : Importe a ser convertido a letras.
-&Moneda    : Moneda que aparecerá en el importe generado.
+**Sintaxis**
+AmountToText( Languages-in:&Lenguaje, Numeric-in:&Importe, Character-in:&Moneda, Character-out:&Texto)
+
+- &Lenguaje    : Lenguaje del texto generado. Se utiliza el dominio enumerado “Languages”.
+- &Importe    : Importe a ser convertido a letras.
+- &Moneda    : Moneda que aparecerá en el importe generado.
 
 Retorno:
 &Texto        : Importe en letras
 
-Ejemplo
+**Ejemplo**
 
 ```javascript
-AmountToText ( Languages.Spanish, 1432.32, “USD”, out:&Texto)
-&Texto: “UN MIL CUATROCIENTOS TREINTA Y DOS USD CON 32/100 CTVOS.”
+AmountToText ( Languages.Spanish, 1432.32, "USD", out:&Texto)
+// &Texto: “UN MIL CUATROCIENTOS TREINTA Y DOS USD CON 32/100 CTVOS.”
 
-AmountToText ( Languages.English, 1432.32, “USD”, out:&Texto)
-&Texto: ONE THOUSAND FOUR HUNDRED THIRTY-TWO AND 32/100 USD.
+AmountToText ( Languages.English, 1432.32, "USD", out:&Texto)
+// &Texto: ONE THOUSAND FOUR HUNDRED THIRTY-TWO AND 32/100 USD.
 
-AmountToText (Languages.Portuguese, 1432.32, “USD”, out:&Texto)
-&Texto: HUM MIL QUATROCENTOS E TRINTA E DOIS USD E 32/100 CTVOS.
+AmountToText (Languages.Portuguese, 1432.32, "USD", out:&Texto)
+// &Texto: HUM MIL QUATROCENTOS E TRINTA E DOIS USD E 32/100 CTVOS.
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -55,7 +56,7 @@ AmountToText (Languages.Portuguese, 1432.32, “USD”, out:&Texto)
 Lenguajes: Todos
 Interfaces: Todas
 
-Propósito
+**Propósito**
 Obtener la [distancia de Levenshtein](https://es.wikipedia.org/wiki/Distancia_de_Levenshtein) entre dos palabras.
 
 La distancia de Levenshtein mide la cantidad de operaciones (sustitución, inserción o eliminación) para convertir una palabra en la otra.
@@ -65,7 +66,9 @@ Por ejemplo, la distancia de Levenshtein entre "casa" y "calle" es de 3 porque s
 casa → cala (sustitución de 's' por 'l')
 cala → calla (inserción de 'l' entre 'l' y 'a')
 calla → calle (sustitución de 'a' por 'e')
-Sintaxis
+
+**Sintaxis**
+
 Levenshtein( Character-in:&From, Character-in:&To, Numeric-out:&Distance)
 
 &From        : Palabra origen a comparar
@@ -76,10 +79,12 @@ Retorno:
 
 &Distance: Cantidad de operaciones para convertir la palabra &From en &To
 
-Ejemplo
+**Ejemplo**
+```javascript
 &Distance = Levenshtein( "casa", "cala")
 
-Resultado: &Distance = 1
+// Resultado: &Distance = 1
+```
 
 **[Volver al inicio](#tabla-de-contenidos)**
 
@@ -89,7 +94,7 @@ Resultado: &Distance = 1
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Procedimiento para validar CBU de Argentina.
 
 Es preferente utilizar el procedimiento de validación de documentos [ValidateID](#validateid).
@@ -103,14 +108,14 @@ http://es.wikipedia.org/wiki/Clave_Bancaria_Uniforme
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Calcular el dígito de control para un CUIT Argentino.
 
 Más información en:
 http://es.wikipedia.org/wiki/Clave_%C3%9Anica_de_Identificaci%C3%B3n_Tributaria
 
-Sintaxis
-ARCUIT_CD ( Character-in:&CUIT, Numeric-out:&CheckDigit)
+**Sintaxis**
+ARCUIT_CD( Character-in:&CUIT, Numeric-out:&CheckDigit)
 
 &CUIT   : CUIT sobre el que se desea calcular su dígito verificador.
 
@@ -118,7 +123,7 @@ Retorno:
 
 &CheckDigit       : Dígito de control calculado.
 
-Ejemplo
+**Ejemplo**
 ```javascript
 ARCUIT_CD (“27-07155257-3”, &CheckDigit)
 
@@ -133,14 +138,14 @@ Nota: Para el cálculo del CUIT solo se toman en cuenta los primeros 10 dígitos
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Calcular el dígito de control para un CBU de Brasil.
 
 Más información en:
 
 https://en.wikipedia.org/wiki/Cadastro_de_Pessoas_F%C3%ADsicas
 
-Sintaxis
+**Sintaxis**
 BRCPF_CD( Character-in:&CPF, Numeric-out:&CheckDigit)
 
 &CPF     : CPF sobre el que se desea calcular su dígito verificador.
@@ -149,9 +154,10 @@ Retorno:
 
 &CheckDigit       : Dígito de control calculado.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
-BRCPF_CD (“27-07155257-3”, &CheckDigit)
+BRCPF_CD( "27-07155257-3", &CheckDigit)
 
 // &CheckDigit: 3
 ```
@@ -164,14 +170,14 @@ Nota: Para el cálculo del CPF solo se toman en cuenta los primeros 9 dígitos y
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Calcular el dígito de control para una cédula de identidad Uruguaya.
 
 Más información en:
 
 http://es.wikipedia.org/wiki/Documento_de_identidad
 
-Sintaxis
+**Sintaxis**
 UYCI_CD ( Character-in:&CI, Numeric-out:&CheckDigit)
 
 &CI        : CI para la cual se desea calcular su dígito verificador.
@@ -180,7 +186,7 @@ Retorno:
 
 &CheckDigit       : Dígito de control calculado.
 
-Ejemplo
+**Ejemplo**
 
 ```javascript
 UYCI_CD( “27-07155257-3”, &CheckDigit)
@@ -196,7 +202,7 @@ Nota: Para el cálculo del CI Uruguayo, se tomarán IDs de 7 u 8 caracteres ya q
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Cálculo de dígito de control basado en el algoritmo de Luhn.
 
 Es útil por ejemplo, para cuando necesitamos verificar el ingreso por teclado de un código por parte de un usuario, de forma de disminuir el error humano.
@@ -207,7 +213,7 @@ Para más información, revisar las referencias:
 http://en.wikipedia.org/wiki/Luhn_algorithm
 https://wiki.openmrs.org/display/docs/Check+Digit+Algorithm
 
-Sintaxis
+**Sintaxis**
 LuhnCD ( Character-in:&StringIn, Numeric-out:&CheckDigit)
 
 &StringIn            : Texto sobre el cual se calculará el dígito de control.
@@ -216,7 +222,8 @@ Retorno:
 
 &CheckDigit       : Dígito de control calculado en base al texto ingresado.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 LuhnCD ( “12345”, &CheckDigit)
 
@@ -228,14 +235,15 @@ LuhnCD ( “12345”, &CheckDigit)
 ## SerialNext
 Lenguajes: Todos
 Interfaces: Todos
-Versión: 1.01.00
 
-Propósito
+**Propósito**
+
 Poder generar series alfanuméricas.
 
 Utiles para cuando se necesitan claves para grán volumen de datos.
 
-Sintaxis
+**Sintaxis**
+
 SerialNext(Character-in:&SerialTextIn, Character-in:&SerialChars, Numeric-in:&SerialLengthP, Character-out:&SerialTextOut)
 
 &SerialTextIn: Serie de partida
@@ -248,7 +256,7 @@ Retorno:
 
 &SerialTextOut: Siguente serie obtenida según la serie original (&SerialTextIn)
 
-Ejemplo
+**Ejemplo**
 
 ```javascript
 &SerialTextIn = "00000000"
@@ -285,15 +293,15 @@ Resultados:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Procedimiento para la validación de una dirección de E-mail.
 
 Está basado en la validación mediante expresiones regulares definida en:
 
 http://wiki.genexus.com/commwiki/servlet/hwiki?Regular+Expressions+%28RegEx%29
 
-Sintaxis
-ValidateEmail(Character-in:&Email, Boolean-out:&IsValid)
+**Sintaxis**
+ValidateEmail( Character-in:&Email, Boolean-out:&IsValid)
 
 &Email                 : Dirección de e-mail a validar.
 
@@ -301,11 +309,12 @@ Retorno:
 
 &IsValid               : Boolean especificando si la dirección es válida o no.
 
-Ejemplo
-```javascript
-ValidateEmail (“johndoe@dummy.com”, &IsValid)
+**Ejemplo**
 
-&IsValid = true
+```javascript
+ValidateEmail( "johndoe@dummy.com", &IsValid)
+
+// &IsValid = true
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -314,13 +323,13 @@ ValidateEmail (“johndoe@dummy.com”, &IsValid)
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Valida un tipo de documento de identidad definido en el dominio enumerado “IdentificationTypes”.
 
 Uruguayan CICPF BrasilCUIT ArgentinaCBU Argentina
 
-Sintaxis
-ValidateID (IdentificationTypes-in:&IDType, Character-in:&ID_Number, Boolean-out:&IsValid)
+**Sintaxis**
+ValidateID( IdentificationTypes-in:&IDType, Character-in:&ID_Number, Boolean-out:&IsValid)
 
 &IDType              : Tipo de documento a validar. Basado en “IdentificationTypes”.
 &ID_Number    : Número de documento a validar. Character(20).
@@ -329,15 +338,16 @@ Retorno:
 
 &IsValid               : Boolean que indica si el documento es válido o no.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
-ValidateID(IdentificationTypes.UruguayanCI, “55996612”, &IsValid)
+ValidateID( IdentificationTypes.UruguayanCI, "55996612", &IsValid)
 
-&IsValid: true
+// &IsValid: true
 
-ValidateID (IdentificationTypes.UruguayanCI, “55996616”, &IsValid)
+ValidateID( IdentificationTypes.UruguayanCI, "55996616", &IsValid)
 
-&IsValid: false
+// &IsValid: false
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -346,13 +356,13 @@ ValidateID (IdentificationTypes.UruguayanCI, “55996616”, &IsValid)
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Procedimiento que chequea si un archivo es una imagen.
 
 Se chequean las extensiones: jpg, png, gif, tif
 
-Sintaxis
-ValidateImage(Character-in:&FileName, Boolean-out:&IsValid)
+**Sintaxis**
+ValidateImage( Character-in:&FileName, Boolean-out:&IsValid)
 
 &FileName: Nombre del archivo
 
@@ -360,17 +370,18 @@ Retorno:
 
 &IsValid               : Boolean especificando si es una imagen o no.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 ValidateImage(“myimagen.jpg”, &IsValid)
 
-Resultado:
-&IsValid = true
+// Resultado:
+// &IsValid = true
 
 ValidateImage(“myreporte.pdf”, &IsValid)
 
-Resultado:
-&IsValid = false
+// Resultado:
+// &IsValid = false
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -379,12 +390,13 @@ Resultado:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Procedimiento para la validación de una dirección un nombre.
 
 La validación chequea que existan al menos dos palabras separadas por un espacio.
 
-Sintaxis
+**Sintaxis**
+
 ValidateName ( Character-in:&Name, Boolean-out:&IsValid)
 
 &Email                 : Nombre a validar.
@@ -393,12 +405,12 @@ Retorno:
 
 &IsValid               : Boolean especificando si el nombre es válido o no.
 
-Ejemplo
-```javascript
-ValidateName ( “John Doe”, &IsValid)
+**Ejemplo**
 
-&IsValid = true
+```javascript
+ValidateName( “John Doe”, &IsValid)
+
+// &IsValid = true
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
-

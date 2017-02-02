@@ -15,7 +15,7 @@
 Lenguajes: Todos
 Interfaces: Web
 
-Propósito
+**Propósito**
 En los sistemas web, es útil conocer el lenguaje utilizado por nuestros usuarios a fin de seleccionar el lenguaje por defecto para nuestra aplicación.
 
 Mediante esta función podemos obtener los lenguajes de preferencia configurados en el browser de nuestros usuarios.
@@ -24,14 +24,16 @@ Por otro lado, la función tiene la particularidad de mapear el lenguaje del bro
 
 Si el browser tiene configurado "es", éste está vinculado a "Spanish".
 
-Sintaxis
+**Sintaxis**
+
 BrowserLanguages( LanguageType[collection]-out:&LanguageList)
 
 Retorno:
 
 &LanguageList: Lista de lenguajes configurados en el browser del usuario.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 &LanguageList = BrowserLanguages()
 
@@ -47,7 +49,7 @@ en, gx: English
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Envío de un mail utilizando los tipos de datos &SmtpSession y &MailMessage.
 
 Como se verá en la sintaxis, este procedimiento carga la configuración del servidor de correo desde StoneFrameworkConfig para realizar el envío de mail.
@@ -56,7 +58,7 @@ Referencias:
 http://wiki.genexus.com/commwiki/servlet/wiki?SMTPSession+Data+Type
 http://wiki.genexus.com/commwiki/servlet/wiki?MailMessage+Data+Type
 
-Sintaxis
+**Sintaxis**
 EmailSend( MailMessage-in:&Mail, Messages.Message-out:&Message)
 
 &Mail                                   : Mensaje de email basado en MailMessage.
@@ -68,13 +70,14 @@ Retorno:
 &Message.Id              : Id retornado por SmtpSession
 &Message.Description : Descripción del error
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
-&MailMessage.From.Name = “My Name”
-&MailMessage.From.Address = myaccount@gmail.com
-&MailMessage.To.New( “John Doe”, “johndoe@gmail.com”)
-&MailMessage.Subject  = !"EmailSend testing"
-&MailMessage.HTMLText = !"EmailSend works great!"
+&MailMessage.From.Name = "My Name"
+&MailMessage.From.Address = "myaccount@gmail.com"
+&MailMessage.To.New( "John Doe", "johndoe@gmail.com")
+&MailMessage.Subject  = "EmailSend testing"
+&MailMessage.HTMLText = "EmailSend works great!"
 
 EmailSend.Call( &MailMessage, &Message)
 
@@ -91,14 +94,16 @@ endif
 Lenguajes: Todos
 Interfaces: Web
 
-Propósito
+**Propósito**
+
 Crea una sesión identificada por una clave la cual contiene la información de un archivo para ser descargado.
 
 Funciona en conjunto con el procedimiento FileGet el cual recibe dicha clave y despliega en línea o descarga un archivo.
 
 Utilizando estos procedimientos se evita por ejemplo, definir reportes como main y callprotocol http.
 
-Sintaxis
+**Sintaxis**
+
 FileAccessGet( Character-in:&FullName, Character-in:&Name, Boolean-in:&Download, Numeric-in:&TimeoutSeconds, Character-out:&Token)
 
 &FullName         : Ruta completa al archivo.
@@ -113,7 +118,8 @@ Retorno:
 
 &Token               : Clave identificando websession donde se almacenan los parámetros anteriores.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 FileAccessGet.Call ( “c:\[mytempfiles]\temp_myreport.pdf”, "myreport.pdf", true, 30, &token)
 
@@ -126,7 +132,8 @@ FileAccessGet.Call ( “c:\[mytempfiles]\temp_myreport.pdf”, "myreport.pdf", t
 Lenguajes: Todos
 Interfaces: Web
 
-Propósito
+**Propósito**
+
 Descarga o visualiza un archivo en línea.
 
 Funciona en conjunto con el procedimiento [FileAccessGet](#fileaccessget) quién se encarga de generar la clave de acceso al archivo.
@@ -135,12 +142,14 @@ Utilizando estos procedimientos se evita por ejemplo, definir reportes como main
 
 Se obtendrá la Url de descarga mediante el método “link” de FileGet.
 
-Sintaxis
+**Sintaxis**
+
 FileGet( Character-in:&Token)
 
 &Token                               : Clave de acceso a los datos del archivo.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 // El token “848e3d24-e945-47ad-ab86-7d95e8fc5945” fue previamente obtenido mediante
 // el proc. FileAccessGet
@@ -164,21 +173,24 @@ Nota: Si se realiza la invocación con call, en algunos navegadores puede rediri
 Lenguajes: Todos
 Interfaces: Web
 
-Propósito
+**Propósito**
+
 Al igual que la función RemoteAddr(), este procedimiento obtiene la IP del equipo remoto pero con la particularidad de revisar algunos headers particulares para ambientes donde se trabaja con un balanceador de carga Ej. Amazon Elastic Load Balancing.
 
 Actualmente se revisa el header: HTTP_X_FORWARDED_FOR
 
 Se estudiará revisar otros headers como: HTTP_CLIENT_IP;HTTP_X_FORWARDED;HTTP_X_CLUSTER_CLIENT_IP;HTTP_FORWARDED_FOR;HTTP_FORWARDED;REMOTE_ADDR
 
-Sintaxis
+**Sintaxis**
+
 RemoteAddr( Character-out:&RemoteIP )
 
 Retorno:
 
 &RemoteIP: IP del equipo remoto.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 &RemoteIP = RemoteAddr()
 
@@ -193,7 +205,7 @@ Resultado:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Generar un XML Sitemap.
 
 El sitemap sirve para publicar nuestras páginas web en los buscadores a fin de indexarlas. Muchas de las páginas no son indexadas por la dificultad de acceder a ellas y mediante este invento de Google se le simplifica la tarea a los buscadores.
@@ -202,7 +214,7 @@ Por más información:
 https://en.wikipedia.org/wiki/Site_map
 https://support.google.com/webmasters/answer/183668?hl=en
 
-Sintaxis
+**Sintaxis**
 SitemapGenerate ( SitemapUrl[collection]-in:&Urls, Character-out:&SitemapXML)
 
 &Urls                    : Lista de objetos “SitemapUrl “.
@@ -216,7 +228,8 @@ Retorno:
 
 &SitemapXML  : Se retorna el sitemap en XML.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 // &Url del tipo SitemapUrl
 // &Urls es una lista de SitemapUrl
@@ -249,12 +262,14 @@ Resultado:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
+
 Procedimiento accesorio para obtener rápidamente una variable del tipo SDT:SitemapUrl con los datos requeridos.
 
 Para más información, revisar el procedimiento [SitemapGenerate](#sitemapgenerate).
 
-Sintaxis
+**Sintaxis**
+
 SitemapUrlGet (Character-in:&loc, Date-in:&lastmod, SitemapFrequencies-in:&changefreq, Numeric-in:&priority, SitemapUrl-out:&Url)
 
 &loc                   : Url a indexar.
@@ -266,7 +281,8 @@ Retorno:
 
 &Url      : Se retorna el SitemapUrl representando los parámetros recibidos.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 // &Url del tipo SitemapUrl
 // &Urls es una lista de SitemapUrl
@@ -284,7 +300,8 @@ Nota: Se entiende que la &Url se agregará a una lista de Urls para luego utiliz
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
+
 Permite generar una variable del tipo “Location” desde una Url.
 
 Generalmente cunado trabajamos con Webservices es necesario crear un Location para variar la Url en tiempo de ejecución.
@@ -296,7 +313,8 @@ http://wiki.genexus.com/commwiki/servlet/wiki?Location+Data+Type
 http://wiki.genexus.com/commwiki/servlet/wiki?GetLocation+Function
 http://wiki.genexus.com/commwiki/servlet/wiki?Location+property
 
-Sintaxis
+**Sintaxis**
+
 UrlToLocation( Character-in:&Url, Character-in:&LocationName, Location-out:&Location)
 
 &Url: Url a convertir en Location
@@ -306,13 +324,15 @@ Retorno:
 
 &Location: Variable del tipo Location representando nuestra &Url.
 
-Ejemplo
+**Ejemplo**
+
+```javascript
 // &Location : Variable del tipo Location
 
 UrlToLocation ( "https://dummy.com/api/myservice.aspx", in:&LocationName, out:&Location)
 
-Resultado:
-
-&Location representando la &Url especificada.
+// Resultado:
+// &Location representando la &Url especificada.
+```
 
 **[Volver al inicio](#tabla-de-contenidos)**

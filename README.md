@@ -10,6 +10,7 @@ Stone Framework Versión: 2.0
   1. [Módulos](#módulos)
   1. [Patrones de diseño](#patrones-de-diseño)
   1. [Tipos de datos](#tipos-de-datos)
+  1. [Generación de Logs](#generación-de-logs)
   1. [Licencia](#licencia)
 
 ## Qué es Stone Framework
@@ -106,6 +107,89 @@ Testeo unitario.
 **[Volver al inicio](#tabla-de-contenidos)**
 
 ## Tipos de datos
+
+**[Volver al inicio](#tabla-de-contenidos)**
+
+## Generación de Logs
+Para generar los logs del sistema, StoneFramework utiliza la biblioteca log4net provista por Genexus.
+
+Según apache:
+
+*"Esta librería permite habilitar log en tiempo de ejecución sin modificar los binarios de la aplicación. La librería fue diseñada para que las sentencias de log puedan ser enviadas junto con la aplicación sin incurrir en problemas de performance"*.
+
+Por otro lado se puede configurar log4net en tiempo de ejecución para que guarde el log en un archivo, lo envíe por mail, lo agregue al trace de .net entre lo que lo hace sensacional al momento que necesitamos manipular los “logs” en nuestra aplicación.
+
+Próximamente, se espera que un colaborador especialista en Java, pueda extender la funcionalidad a éste lenguaje mediante log4j.
+
+Esta librería clasifica los logs de 6 formas:
+
+OFF - Apagado
+Debug
+Info - Información
+Warn - Advertencias
+Error
+Fatal - Errores fatales
+
+Es una clasificación jerárquica en la que estableciendo "debug" se loguea todo (info, warn, error, etc) y a medida que se va subiendo en la clasificación, se va limitando la generación de logs, por ejemplo, si se especifica "Error", se generan logs de "error y fatal".
+
+### Configuración para generar logs en Genexus
+Genexus ya generar los logs de la aplicación mediante esta librería al setear las propiedades del generador:
+
+Log level = [el nivel de log que deseamos ej.: debug]
+
+Luego se puede elegir donde se va a generar. Por defecto está File y cliente.log (el archivo que contendrá el log).
+
+### Generación de nuestros Logs
+Para generar logs, StoneFramework dispone de la función [LogAdd](https://github.com/sincrum/stoneframework/blob/master/StoneFramework.System.md#logadd) la cual envía logs a la librería log4net y log4j (próximamente).
+
+Como se puede revisar en la sintaxis, los parámetros son:
+
+- &LogLevels : Nivel de log (debug, warn, info, etc.)
+- &LogGroup : Clasificación de log, podría ser el nombre de nuestra aplicación. Si es vacío se utiliza la clasificación "StoneFramework"
+- &Program : Nombre de programa o identificado que generar el log. Es un dato informativo para encontrar el programa que generó el log. Generalmente &Pgmname.
+- &LogDsc : Texto libre con información de log a generar.
+
+### Filtrando la información de logs que se generan
+Al especificarle a Genexus que se generen logs, se va a generar una gran cantidad de información y esto proporcionará una lentitud en el sistema.
+
+Para filtrar la información que se genera, debemos modificar los archivos de configuración de la aplicación. En .net serían web.config o cliente.exe.config.
+
+Si deseamos evitar que se generen los logs de Genexus, realizaremos el siguiente cambio:
+
+```javascript
+<root>
+      <level value="DEBUG" /> ---> cambiar por ---> <level value="OFF" />
+      <appender-ref ref="RollingFile" />
+</root>
+```
+
+Si deseamos solo generar los logs de nuestro &LogGroup, se debe agregar un nuevo "Logger" al archivo de configuración, éste se puede agregar antes del elemento "<root>".
+
+En el siguiente ejemplo, generaremos solo los logs de los llamados a la función SGP_System_LogAdd sin especificar &LogGroup (&LogGroup=""). Un ejemplo de esto sería:
+
+```javascript
+LogAdd.Call(LogLevels.DEBUG, "", &Pgmname, "Esta es la información de log a generar")
+```
+
+Las modificaciones al archivo de configuración para que se genere el log sería:
+
+```javascript
+<logger name="StoneFramework">
+   <level value="DEBUG" />
+</logger>
+<root>
+   <level value="OFF" />
+   <appender-ref ref="RollingFile" />
+</root>
+```
+
+Más información:
+
+- [LogAdd](https://github.com/sincrum/stoneframework/blob/master/StoneFramework.System.md#logadd) Generar logs con StoneFramework
+- https://logging.apache.org/log4net/
+- http://logging.apache.org/log4j/1.2/
+- http://wiki.genexus.com/commwiki/servlet/wiki?C%C3%B3mo+generar+trace+de+.Net+en+la+nube,
+- http://wiki.genexus.com/commwiki/servlet/wiki?Log+output+property,
 
 **[Volver al inicio](#tabla-de-contenidos)**
 

@@ -25,7 +25,7 @@
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Nos permite realizar cambios de base numérica. La única que por el momento no se soporta es la unaria (base-1).
 
 Este procedimiento es utilizado por los de conversión entre decimal y hexadecimal:
@@ -35,7 +35,7 @@ Este procedimiento es utilizado por los de conversión entre decimal y hexadecim
 Por más información:
 https://es.wikipedia.org/wiki/Sistema_de_numeraci%C3%B3n
 
-Sintaxis
+**Sintaxis**
 BaseChange(Character-in:&NumIn, Numeric-in:&BaseIn, Numeric-in:&BaseOut, Character-out:&NumOut)
 
 &NumIn    : Número de entrada, especificado en la base &BaseIn
@@ -46,13 +46,14 @@ Retorno:
 
 &NumOut            : Número convertido a la base de salida
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
-&NumOut = BaseChange( “1F”, 16, 10) // &NumOut = "31"
+&NumOut = BaseChange( "1F", 16, 10) // &NumOut = "31"
 
-&NumOut = BaseChange( “1F”, 16, 8) // &NumOut = "37"
+&NumOut = BaseChange( "1F", 16, 8) // &NumOut = "37"
 
-&NumOut = BaseChange( “1F”, 16, 2) // &NumOut = "11111"
+&NumOut = BaseChange( "1F", 16, 2) // &NumOut = "11111"
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -61,13 +62,13 @@ Ejemplo
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Retorna el content-type relativo a una extensión de archivo.
 
 Por más información se puede revisar:
 http://en.wikipedia.org/wiki/Internet_media_type
 
-Sintaxis
+**Sintaxis**
 ContentTypeByExt( Character-in:&Extension, Character-out:&ContentType)
 
 &Extension        : Extensión de archivo, ej.: “pdf”
@@ -76,12 +77,13 @@ Retorno:
 
 &ContentType : Variable character conteniendo el content-type vinculado a la extensión.
 
-Ejemplo
-```javascript
-ContentTypeByExt ( “pdf”, &ContentType)
+**Ejemplo**
 
-Resultado:
-&ContentType=”application/pdf”
+```javascript
+ContentTypeByExt ( "pdf", &ContentType)
+
+// Resultado:
+// &ContentType = "application/pdf"
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -90,14 +92,14 @@ Resultado:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Convierte un valor decimal a hexadecimal.
 
 Por más información:
 
 https://en.wikipedia.org/?title=Hexadecimal
 
-Sintaxis
+**Sintaxis**
 DecToHex( Numeric(18)-in:&Decimal, Character-out:&Hex)
 
 &Decimal            : Numeric (18) – Valor en decimal.
@@ -106,12 +108,13 @@ Retorno:
 
 &Hex    : Character – Valor hexadecimal.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 &Hex = DecToHex(  3917 )
 
-Resultado: 
-&Decimal = "F4D"
+// Resultado: 
+// &Decimal = "F4D"
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -120,10 +123,10 @@ Resultado:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Obtener la extensión de un archivo desde su nombre.
 
-Sintaxis
+**Sintaxis**
 FileExtensionGet ( Character-in:&FileNameTemp, Character-out: &Extension)
 
 &FileNameTemp             : Character - Nombre de archivo.
@@ -132,9 +135,9 @@ Retorno:
 
 &Extension        : Character - Extensión del archivo.
 
-Ejemplo
+**Ejemplo**
 ```javascript
-&Extension  = FileExtensionGet( “myarchivo.pdf”)
+&Extension  = FileExtensionGet( "myarchivo.pdf")
 
 Resultado:
 &Extension  = “pdf”
@@ -146,10 +149,11 @@ Resultado:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
+
 Convertir un DateTime a Character con un determinado formato.
 
-Sintaxis
+**Sintaxis**
 
 FormattedDateString( DateTime-in:&DateTime, Character-in:&Picture, Character-out:&FormattedDate)
 
@@ -169,13 +173,14 @@ Retorno:
 
 &FormattedDate            : Character – Texto con la fecha en el formato especificado.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 // &DateTime contiene la fecha 21/12/79 19:34
 
-&FormattedDate  = FormattedDateString ( “DDD, DD de MMM de YYYY”)
+&FormattedDate  = FormattedDateString ( "DDD, DD de MMM de YYYY")
 
-Resultado: &FormattedDate = “Viernes, 21 de Diciembre de 1979”
+Resultado: &FormattedDate = "Viernes, 21 de Diciembre de 1979"
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -184,17 +189,17 @@ Resultado: &FormattedDate = “Viernes, 21 de Diciembre de 1979”
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
+
 Convierte un valor hexadecimal en decimal.
 
 Por más información:
 
 https://en.wikipedia.org/?title=Hexadecimal
 
-Sintaxis
-HexToDec(Character-in:&Hex, Numeric(18)-out:&Decimal)
+**Sintaxis**
 
- 
+HexToDec(Character-in:&Hex, Numeric(18)-out:&Decimal)
 
 &Hex    : Character – Valor hexadecimal.
 
@@ -202,12 +207,13 @@ Retorno:
 
 &Decimal            : Numeric (18) – Valor en decimal.
 
-Ejemplo
-```javascript
-&Decimal =  HexToDec( “F4D”)
+**Ejemplo**
 
-Resultado:
-&Decimal = 3917
+```javascript
+&Decimal =  HexToDec( "F4D")
+
+// Resultado:
+// &Decimal = 3917
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -216,14 +222,14 @@ Resultado:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Convierte un color hexadecima RGB.
 
 Por más información:
 http://wiki.genexus.com/commwiki/servlet/wiki?RGB+Function
 https://es.wikipedia.org/wiki/RGB
 
-Sintaxis
+**Sintaxis**
 HexToRGB (Character-in:&HexColor, Numeric(8)-out:&RGBColor)
 
 &HexColor         : Color en Hexadecimal. Debe especificarse en 6 caracteres.
@@ -232,9 +238,10 @@ Retorno:
 
 &RGBColor         : Color RGB.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
-MyTextBlock.ForeColor = HexToDec( “0000FF”)
+MyTextBlock.ForeColor = HexToDec( "0000FF")
 
 Resultado:
 Se coloreará de azul MyTextBlock.
@@ -246,13 +253,13 @@ Se coloreará de azul MyTextBlock.
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Convierte un DateTime en texto con formato ISO8601.
 
 Más información:
 https://en.wikipedia.org/?title=ISO_8601
 
-Sintaxis
+**Sintaxis**
 ISO8601ToTime (Character-in:&iso, DateTime-out:&dt)
 
 &iso: Fecha y hora en formato ISO8601
@@ -261,9 +268,9 @@ Retorno:
 
 &dt: DateTime relativo a &ISO.
 
-Ejemplo
+**Ejemplo**
 ```javascript
-&dt  = ISO8601ToTime ( “2015-06-18T10:46:13”)
+&dt  = ISO8601ToTime ( "2015-06-18T10:46:13")
 
 Resultado:
 &dt contendrá la fecha hora: 18/06/2015 10:46:13
@@ -275,19 +282,19 @@ Resultado:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Agrega un texto a una colección de mensajes.
 
-Sintaxis
+**Sintaxis**
 MessageAdd( Messages-in:&Messages, in:&MsgStr)
 
 &Messages        : Colección de mensajes
 
 &MsgStr              : Texto del mensaje a agregar
 
-Ejemplo
+**Ejemplo**
 ```javascript
-MessageAdd (&Messages, “Contraseña no válida”)
+MessageAdd ( &Messages, "Contraseña no válida")
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -296,25 +303,26 @@ MessageAdd (&Messages, “Contraseña no válida”)
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Genera Log con toda una colección de mensajes.
 
 Para profundizar en la generación de logs con StoneFramework, revisar el proc. SGP_System_LogAdd
 
-Sintaxis
+**Sintaxis**
 MessagesLog( Character-in:&Program, LogLevels-in:&LogLevels, Messages-in:&Messages)
 
 &Program           : Programa que genera el log. Típicamente &Pgmname
 &LogLevels        : Nivel de log (DEBUG, INFO, WARN, etc.)
 &Messages        : Colección de mensajes a registrar
 
-Ejemplo
+**Ejemplo**
+
 Se utiliza por ejemplo en los casos donde no queremos que el usuario vea los mensajes generados por un Business Component, pero si lo queremos tener un registro para saber que sucedió.
 
 En el ejemplo tenemos el BC Cliente:
 ```javascript
 &ClienteBC = new()
-&ClienteBC.Nombre = “John Doe”
+&ClienteBC.Nombre = "John Doe"
 &ClienteBC.Save()
 If &ClienteBC.Success()
 	commit
@@ -323,7 +331,7 @@ else
 	MessagesLog( &Pgmname, LogLevels.WARN, &ClienteBC.GetMessages())
 	
     // Se retorna una mensaje particular al cliente
-    MessageAdd(&Messages, “Error al crear el cliente”)
+    MessageAdd( &Messages, "Error al crear el cliente")
 endif
 ```
 
@@ -333,22 +341,25 @@ endif
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
+
 Despliega en pantalla una colección de mensajes.
 
 Tanto si se está utilizando un BC en la interface o si recibimos una colección de mensajes, generalmente tenemos que realizar una recorrida por cada uno para ir mostrando cada mensaje. Esto nos lleva a repetir el mismo código en varios lados e incluir variables extra en nuestras interfaces.
 
 Este procedimiento simplifica ésta tarea.
 
-Sintaxis
+**Sintaxis**
+
 MessagesShow( Messages-in:&Messages)
 
 &Messages        : Colección de mensajes
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 &ClienteBC = new()
-&ClienteBC.Nombre = “John Doe”
+&ClienteBC.Nombre = "John Doe"
 &ClienteBC.Save()
 
 if &ClienteBC.Success()
@@ -364,21 +375,24 @@ endif
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
+
 Permite extraer los números existentes en un texto.
 
-Sintaxis
-OnlyNumbers(Character-in:&strin, Character-out:&Numbers)
+**Sintaxis**
+
+OnlyNumbers( Character-in:&strin, Character-out:&Numbers)
 
 &strin                   : Texto a procesar
 &Numbers         : Números encontrados en &strin
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
-&Numbers  = OnlyNumbers(“MI CI ES 1.223.444/6”)
+&Numbers  = OnlyNumbers( "MI CI ES 1.223.444/6")
 
 Resultado:
-&Numbers  = “12234446”
+&Numbers  = "12234446"
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -387,12 +401,12 @@ Resultado:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Repite una secuencia de caracteres N veces.
 
 Es una extensión de la función "Space" que repetía N veces un espacio.
 
-Sintaxis
+**Sintaxis**
 Repeat( Character-in:&Sequence, Numeric-in:&RepeatTimes, Character-out:&TextOut)
 
 &Sequence: Secuencia de caracteres a repetir
@@ -402,12 +416,13 @@ Retorno:
 
 &TextOut           : Cadena de caracteres con la secuencia repetida.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
-&TextOut = Repeat ( “abc.”, 3)
+&TextOut = Repeat ( "abc.", 3)
 
 Resultado:
-&TextOut = “abc.abc.abc.”
+&TextOut = "abc.abc.abc."
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -416,10 +431,12 @@ Resultado:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
+
 Extra los un conjunto de caracteres de un texto determinado. Se le agrega “…” al final.
 
-Sintaxis
+**Sintaxis**
+
 TextTruncate( Character-in:&TextIn, Numeric-in:&Len, Character-out:&TextOut)
 
 &TextIn                               : Texto a truncar
@@ -429,12 +446,13 @@ Retorno:
 
 &TextOut           : Texto truncado
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
-&TextOut = TextTruncate ( “Truncando un texto libre”, 10)
+&TextOut = TextTruncate ( "Truncando un texto libre", 10)
 
 Resultado:
-&TextOut = “Truncan...”
+&TextOut = "Truncan..."
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**
@@ -449,7 +467,8 @@ Convierte un DateTime en texto con formato ISO8601.
 Más información:
 https://en.wikipedia.org/?title=ISO_8601
 
-Sintaxis
+**Sintaxis**
+
 TimeToISO8601(DateTime-in:&dt, Character-out:&iso)
 
 &dt                        : Fecha y hora a convertir.
@@ -458,7 +477,8 @@ Retorno:
 
 &iso                      : Fecha y hora en formato ISO8601
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 // &DT contiene la fecha hora: 18/06/2015 10:46:13
 &IsoText  = TimeToISO8601(&dt)
@@ -473,10 +493,12 @@ Resultado:
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
+
 Extrae los un conjunto de caracteres de un texto determinado.
 
-Sintaxis
+**Sintaxis**
+
 ValidChars( Character-in:&group, Character-in:&textin, Character-out:&validchars)
 
 &group                : Conjunto de caracteres a extraer
@@ -486,12 +508,13 @@ Retorno:
 
 &validchars        : Caracteres extraídos de &textin
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
-&validchars = ValidChars(“aeiou”, “esto es una prueba”)
+&validchars = ValidChars( "aeiou", "esto es una prueba")
 
 Resultado:
-&validchars = “eoeuauea”
+&validchars = "eoeuauea"
 ```
 
 **[Volver al inicio](#tabla-de-contenidos)**

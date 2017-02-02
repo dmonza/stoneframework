@@ -13,10 +13,10 @@
 Lenguajes: C#
 Interfaces: Todas
 
-Propósito
+**Propósito**
 Obtiene el valor de una variable de ambiente del sistema operativo.
 
-Sintaxis
+**Sintaxis**
 EnvVarGet( Character-in:&Name, Character-out:&Value)
 
 &Name          : Nombre de la variable a retornar.
@@ -25,7 +25,7 @@ Retorno:
 
 &Value          : Valor de la variable a retornar.
 
-Ejemplo
+**Ejemplo**
 ```javascript
 &Valor = EnvVarGet( !"PATH")
 
@@ -38,21 +38,21 @@ Ejemplo
 Lenguajes: C#, Java
 Interfaces: Todos
 
-Propósito
+**Propósito**
 Obtiene en tiempo de ejecución el lenguaje en que fue generada la aplicación.
 
 Ya que Genexus puede generar una aplicación en diferentes lenguajes, a veces se hace necesario saber sobre cual está corriendo nuestra aplicación a fin de tomar decisiones.
 
 Por ejemplo, alguna configuración que utiliza nuestro sistema debe ser diferente par a C# que para Java.
 
-Sintaxis
+**Sintaxis**
 Generator(out:&Generator)
 
 Retorno:
 
 &Generator       : Variable basada en el dominio enumerado “Generators” donde se obtendrá el lenguaje en que fue generada la aplicación.
 
-Ejemplo
+**Ejemplo**
 ```javascript
 // Variable basada en el dominio enumerado “Generators”
 &Generator = Generator()
@@ -64,7 +64,8 @@ Ejemplo
 Lenguajes: C#
 Interfaces: Todos
 
-Propósito
+**Propósito**
+
 Generación estándar de logs del sistema.
 
 Genexus desde hace varias versiones incorpora en C# la librería log4net para generar Logs de la aplicación.
@@ -84,7 +85,8 @@ http://logging.apache.org/log4j/1.2/
 Notas:
 En .net se debe agregar “/r:bin\log4net.dll” a “Compiler flags” (propiedad del generador)Se necesitaría colaboración para agregar compatibilidad con Java.
 
-Sintaxis
+**Sintaxis**
+
 LogAdd( LogLevels-in:&LogLevels, Character-in:&LogGroup, Character-in:&Program, Character-in:&LogText)
 
 &LogLevels        : Niveles de log basado en el dominio enumerado LogLevels (Fatal, Error, Warn, Info, Debug)
@@ -92,9 +94,10 @@ LogAdd( LogLevels-in:&LogLevels, Character-in:&LogGroup, Character-in:&Program, 
 &Program           : Programa que está generando el log. Normalmente se pasa &Pgmname.
 &LogText            : Texto a registrar.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
-LogAdd.Call( LogLevels.ERROR, "MyAppName", &Pgmname, “Usuario no autenticado” )
+LogAdd.Call( LogLevels.ERROR, "MyAppName", &Pgmname, "Usuario no autenticado" )
 ```
 
 Nota: El ejemplo generará un log tipo error para el logger “MyAppName” con “Usuario no autenticado”.
@@ -105,7 +108,8 @@ Nota: El ejemplo generará un log tipo error para el logger “MyAppName” con 
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
+
 Obtiene en un string representando un GUID.
 
 Ya en la GxEv2 se disponemos del tipo de datos GUID para generar estos. Este procedimiento viene de tiempo atrás pero es útil en algunos casos.
@@ -118,14 +122,16 @@ http://wiki.genexus.com/commwiki/servlet/wiki?GUID
 
 http://wiki.genexus.com/commwiki/servlet/wiki?GUID+data+type
 
-Sintaxis
+**Sintaxis**
+
 NewGUID ( Character-out:&GUIDStr)
 
 Retorno:
 
 &GUIDStr           : Variable de tipo Character representando un GUID.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
 &GUIDStr  = NewGUID ()
 
@@ -138,14 +144,16 @@ Ejemplo
 Lenguajes: Todos
 Interfaces: Todos
 
-Propósito
+**Propósito**
+
 Genera la ruta completa a un archivo temporal.
 
 Es muy útil para archivos que se generan desde el sistema, como ser: pdf, excel, etc.
 
 Se utiliza la ruta para archivos temporales definida en “TempFilesPath” dentro de “StoneFrameworkConfig ”.
 
-Sintaxis
+**Sintaxis**
+
 TempFileName( Character-in:&FileName, Character-in:&Ext, Character-out:&FullName)
 
 &FileName: Nombre del archivo a ser creado (sin extensión).
@@ -155,13 +163,14 @@ Retorno:
 
 &FullName         : Nombre del archivo temporal.
 
-Ejemplo
+**Ejemplo**
+
 ```javascript
-&FullName = TempFileName ( “MiReporte”, “pdf”)
+&FullName = TempFileName ( "MiReporte", "pdf")
 
 Resultado:
 
-&FullName = “C:\wwwroot\myapp\web\..\PrivateTempStorage\1360_MiReporte.pdf”
+&FullName = "C:\wwwroot\myapp\web\..\PrivateTempStorage\1360_MiReporte.pdf"
 ```
 
 Nota: La ruta de la aplicación variará según ésta.
@@ -172,7 +181,8 @@ Nota: La ruta de la aplicación variará según ésta.
 Lenguajes: C#, Java
 Interfaces: Web
 
-Propósito
+**Propósito**
+
 Obtiene la ruta donde está alojada la aplicación web que se está ejecutando.
 
 Por ejemplo, si nuestro sitio web está publicado en:
@@ -180,14 +190,14 @@ C:\wwwroot\mysitioweb\web
 
 La ruta anterior es la retornada por este procedimiento y es muy útil para manejo de archivos en web.
 
-Sintaxis
+**Sintaxis**
 WebPath( Character-out:&webpath)
 
 Retorno:
 
 &webpath          : Ruta a la carpeta donde se está ejecutando la aplicación.
 
-Ejemplo
+**Ejemplo**
 ```javascript
 &Path = WebPath()
 
