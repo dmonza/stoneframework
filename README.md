@@ -108,6 +108,35 @@ Testeo unitario.
 
 ## Tipos de datos
 
+### Structured Data Types
+
+- CommonResponse
+	- ErrCode
+	- ErrDescription
+	- Messages
+	- Id
+	- Data
+
+### Dominios
+
+- Amount: Importes (-15.2)
+- DateFull: Date with four year digits
+- Json: Char(10M)
+- Names: Char(64)
+- Path: Char(256)
+- Percentage: Porcentaje (6.2)
+- Rates: Numeric(14.4)
+- Token: Char(64)
+
+### Dominios enumerados
+
+- IdentificationTypes: Tipos de documentos de identidad
+- Generators: Generadores GX. Ej. C#/Java
+- HTTPMethods: HTTP request methods
+- Languages: Lenguajes que pueden tener los usuarios
+- LogLevels: Niveles de Log (Debug, Warning, Error, etc.)
+- SitemapFrequencies: Frecuencias de actualización en sitemaps
+
 **[Volver al inicio](#tabla-de-contenidos)**
 
 ## Generación de Logs
@@ -123,12 +152,12 @@ Próximamente, se espera que un colaborador especialista en Java, pueda extender
 
 Esta librería clasifica los logs de 6 formas:
 
-OFF - Apagado
-Debug
-Info - Información
-Warn - Advertencias
-Error
-Fatal - Errores fatales
+- OFF - Apagado
+- Debug
+- Info - Información
+- Warn - Advertencias
+- Error
+- Fatal - Errores fatales
 
 Es una clasificación jerárquica en la que estableciendo "debug" se loguea todo (info, warn, error, etc) y a medida que se va subiendo en la clasificación, se va limitando la generación de logs, por ejemplo, si se especifica "Error", se generan logs de "error y fatal".
 
