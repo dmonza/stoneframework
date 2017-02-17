@@ -11,6 +11,8 @@ Stone Framework Versión: 2.0
   1. [Patrones de diseño](#patrones-de-diseño)
   1. [Tipos de datos](#tipos-de-datos)
   1. [Generación de Logs](#generación-de-logs)
+  1. [Crear un reporte sin definirlo como Main](#crear-un-reporte-sin-definirlo-como-main)
+  1. [Links de interes](#links-de-interes)
   1. [Licencia](#licencia)
 
 ## Qué es Stone Framework
@@ -222,6 +224,29 @@ Más información:
 
 **[Volver al inicio](#tabla-de-contenidos)**
 
+## Crear un reporte sin definirlo como Main
+Primero que nada, para crear un reporte sin que sea main, el mismo debe cumplir los puntos:
+
+- No marcar como Main
+- Recibir por parámetro el nombre del PDF a generar en una variable, ej.: &FileName
+- Definir la regla “output_file(&FileName, “PDF”);”
+
+En el siguiente ejemplo mostraremos el código para generar el reporte. Para nuestro caso, el procedimiento del reporte se llamará "MiReporte":
+
+// Se obtiene una ruta temporal para crear el archivo
+[TempFileName](https://github.com/sincrum/stoneframework/blob/master/StoneFramework.System.md#tempfilename).Call( !"nompre_del_reporte" , !"pdf", &FullName)
+
+// Se crear el archivo invocando a nuestro reporte
+MiReporte.Call( &FullName )
+
+// Se obtiene un Link de acceso a nuestro archivo (con validez de 60 segundos)
+[FileAccessGet](https://github.com/sincrum/stoneframework/blob/master/StoneFramework.Net.md#fileaccessget).Call( &FullName, "myreport.pdf", true, 60, &token)
+
+// Luego descargamos el archivo
+[FileGet](https://github.com/sincrum/stoneframework/blob/master/StoneFramework.System.md#logadd).Call(&token)
+
+**[Volver al inicio](#tabla-de-contenidos)**
+
 ## Links de interes
 
 - https://www.youtube.com/watch?v=nKhE2deCOWU
@@ -230,6 +255,23 @@ Más información:
 
 ## Licencia
 
-A partir de la versión 2.0, Stone Framework está licenciado de forma comercial según el documento: [Licencia de StoneFramework](LICENCIA.md)
+**A partir de la versión 2.0, Stone Framework está licenciado de forma comercial.**
+
+Copyright (c) 2015 Daniel Monza
+
+Prohibida la reproducción, utilización o modificación total o
+parcial del presente software, incluyendo  el código  fuente,
+archivos  binarios y/o  documentación asociada, por cualquier
+medio, sin autorización expresa del autor.
+
+EN CASO DE EXITIR AUTORIZACIÓN EXPRESA PARA SU USO, EL PRESENTE
+SOFTWARE SE PROPORCIONA SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA,
+INCLUYENDO PERO NO LIMITADO A GARANTÍAS DE COMERCIALIZACIÓN,
+IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN.
+EN NINGÚN CASO LOS AUTORES O TITULARES DEL COPYRIGHT SERÁN
+RESPONSABLES DE NINGUNA RECLAMACIÓN, DAÑOS U OTRAS RESPONSABILIDADES,
+YA SEA EN UNA ACCIÓN DE CONTRATO, AGRAVIO O CUALQUIER OTRO MOTIVO,
+QUE SURJA DE O EN CONEXIÓN CON EL SOFTWARE O EL USO U
+OTRO TIPO DE ACCIONES EN EL SOFTWARE.
 
 **[Volver al inicio](#tabla-de-contenidos)**
