@@ -106,6 +106,47 @@ Testeo unitario.
 
 ## Patrones de diseño
 
+### AccessTokens
+Generar claves con vencimiento para multiples usos. Por ejemeplo el sistema de seguridad las utiliza para al proceso de login.
+
+### BusinessBase
+Conjunto de recursos utilizados en empresas. Por ejemplo: 
+Monedas, Tipos de cambio, Países y Rangos.
+
+### Contacts
+Administración de personas. Puede ser utilizado para heredar la estructura de clientes.
+
+### Files
+Gestión de archivos para la aplicación.
+
+[Ingreas aquí por más información.](StoneFrameworkPatterns.Files.md)
+
+### FullText
+Abstracción para realizar búsquedas fulltext incluyendo ElasticSearch.
+
+### MailTemplates
+Gestión de plantillas para el envío de Email.
+
+### Metadata
+Estructura genérica para almacenar metadata en entidades. Se utiliza también para gestionar los parámetros con los procedimientos ParameterSet y ParameterGet.
+
+### Notificaciones
+Gestión de notificaciones al usuario.
+
+### Participants
+Gestión de participantes para notificaciones y mensajes.
+
+### Security
+Modulo de seguridad como una opción más simple al GAM.
+
+### SerialPattern
+Gestión de series numéricas y alfanumericas.
+
+[Ingreas aquí por más información.](StoneFrameworkPatterns.SerialPattern.md)
+
+### Tags
+Gestión de etiquetas.
+
 **[Volver al inicio](#tabla-de-contenidos)**
 
 ## Tipos de datos
