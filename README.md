@@ -1,6 +1,6 @@
 # Stone Framework - Framework de desarrollo para GeneXus
 
-Stone Framework Versión: 2.0
+Stone Framework Versión: 3.0
 
 ## Tabla de Contenidos
 
@@ -20,9 +20,9 @@ Toda construcción comienza por la piedra fundamental. Aquí es donde Stone Fram
 
 Se trata de un conjunto de funcionalidades y patrones de diseño que son utilizados en muchas de nuestras KBs. Es muy útil para iniciar KBs de cero o agregar funcionalidades a las KBs existentes.
 
-Stone Framework está desarrollado mediante un [estándar de desarrollo](https://github.com/sincrum/genexus) en el cual se mantiene la homogeneidad en todo su código. Ésto logra minimizar la curva de aprendizaje para el programador que lo utilice.
+Stone Framework está desarrollado mediante un [estándar de desarrollo](https://github.com/dmonza/genexus) en el cual se mantiene la homogeneidad en todo su código. Ésto logra minimizar la curva de aprendizaje para el programador que lo utilice.
 
-Es un framework desarrollado por Daniel Monza originalmente para [GProjex](http://www.gprojex.com/) y comercializado por [Sincrum](http://www.sincrum.com/).
+Es un framework desarrollado por Daniel Monza originalmente para [GProjex](http://www.gprojex.com/) y luego fue trabajado como componente para ser utilizado en otros proyectos.
 
 **[Volver al inicio](#tabla-de-contenidos)**
 
@@ -171,7 +171,7 @@ Log level = [el nivel de log que deseamos ej.: debug]
 Luego se puede elegir donde se va a generar. Por defecto está File y cliente.log (el archivo que contendrá el log).
 
 ### Generación de nuestros Logs
-Para generar logs, StoneFramework dispone de la función [LogAdd](https://github.com/sincrum/stoneframework/blob/master/StoneFramework.System.md#logadd) la cual envía logs a la librería log4net y log4j (próximamente).
+Para generar logs, StoneFramework dispone de la función [LogAdd](https://github.com/dmonza/stoneframework/blob/master/StoneFramework.System.md#logadd) la cual envía logs a la librería log4net y log4j (próximamente).
 
 Como se puede revisar en la sintaxis, los parámetros son:
 
@@ -216,7 +216,7 @@ Las modificaciones al archivo de configuración para que se genere el log sería
 
 Más información:
 
-- [LogAdd](https://github.com/sincrum/stoneframework/blob/master/StoneFramework.System.md#logadd) Generar logs con StoneFramework
+- [LogAdd](https://github.com/dmonza/stoneframework/blob/master/StoneFramework.System.md#logadd) Generar logs con StoneFramework
 - https://logging.apache.org/log4net/
 - http://logging.apache.org/log4j/1.2/
 - http://wiki.genexus.com/commwiki/servlet/wiki?C%C3%B3mo+generar+trace+de+.Net+en+la+nube,
@@ -234,16 +234,16 @@ Primero que nada, para crear un reporte sin que sea main, el mismo debe cumplir 
 En el siguiente ejemplo mostraremos el código para generar el reporte. Para nuestro caso, el procedimiento del reporte se llamará "MiReporte":
 
 // Se obtiene una ruta temporal para crear el archivo
-[TempFileName](https://github.com/sincrum/stoneframework/blob/master/StoneFramework.System.md#tempfilename).Call( !"nompre_del_reporte" , !"pdf", &FullName)
+[TempFileName](https://github.com/dmonza/stoneframework/blob/master/StoneFramework.System.md#tempfilename).Call( !"nompre_del_reporte" , !"pdf", &FullName)
 
 // Se crear el archivo invocando a nuestro reporte
 MiReporte.Call( &FullName )
 
 // Se obtiene un Link de acceso a nuestro archivo (con validez de 60 segundos)
-[FileAccessGet](https://github.com/sincrum/stoneframework/blob/master/StoneFramework.Net.md#fileaccessget).Call( &FullName, "myreport.pdf", true, 60, &token)
+[FileAccessGet](https://github.com/dmonza/stoneframework/blob/master/StoneFramework.Net.md#fileaccessget).Call( &FullName, "myreport.pdf", true, 60, &token)
 
 // Luego descargamos el archivo
-[FileGet](https://github.com/sincrum/stoneframework/blob/master/StoneFramework.System.md#logadd).Call(&token)
+[FileGet](https://github.com/dmonza/stoneframework/blob/master/StoneFramework.System.md#logadd).Call(&token)
 
 **[Volver al inicio](#tabla-de-contenidos)**
 
