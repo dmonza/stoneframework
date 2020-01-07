@@ -1,6 +1,5 @@
 # Stone Framework - Framework de desarrollo para GeneXus
-
-Stone Framework Versión: 3.0
+Versión: 3.0 por [Daniel Monza](https://uy.linkedin.com/in/daniel-monza-62515112)
 
 ## Tabla de Contenidos
 
