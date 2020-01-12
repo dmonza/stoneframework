@@ -298,7 +298,7 @@ MiReporte.Call( &FullName )
 
 Copyright (c) 2015 Daniel Monza
 
-La "comunity edition" de Stoneframework y los proyectos hosteados que lo utilizan son distribuidos bajo la licencia [GNU AFFERO GENERAL PUBLIC LICENSE](LICENCIA.txt).
+La "comunity edition" de Stoneframework y los proyectos hosteados que lo utilizan son distribuidos bajo la licencia [GNU AFFERO GENERAL PUBLIC LICENSE](LICENSE.txt).
 
 Si por alguna razón no deseas que tu proyecto esté bajo las obligaciones referentes a licencia de código abierto, necesitarás una licencia comercial. Si es así, ponte en contacto mediante enviando un mail a info@sincrum.com.
 
