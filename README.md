@@ -1,5 +1,5 @@
 # Stone Framework - Framework de desarrollo para GeneXus
-Versión: 3.0 para Genexus 16
+Versión: 3.0 beta para Genexus 16
 por [Daniel Monza](https://uy.linkedin.com/in/daniel-monza-62515112)
 
 ## Tabla de Contenidos
@@ -296,23 +296,10 @@ MiReporte.Call( &FullName )
 
 ## Licencia
 
-**A partir de la versión 2.0, Stone Framework está licenciado de forma comercial.**
-
 Copyright (c) 2015 Daniel Monza
 
-Prohibida la reproducción, utilización o modificación total o
-parcial del presente software, incluyendo  el código  fuente,
-archivos  binarios y/o  documentación asociada, por cualquier
-medio, sin autorización expresa del autor.
+La "comunity edition" de Stoneframework y los proyectos hosteados que lo utilizan son distribuidos bajo la licencia [GNU AFFERO GENERAL PUBLIC LICENSE](LICENCIA.txt).
 
-EN CASO DE EXITIR AUTORIZACIÓN EXPRESA PARA SU USO, EL PRESENTE
-SOFTWARE SE PROPORCIONA SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA,
-INCLUYENDO PERO NO LIMITADO A GARANTÍAS DE COMERCIALIZACIÓN,
-IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN.
-EN NINGÚN CASO LOS AUTORES O TITULARES DEL COPYRIGHT SERÁN
-RESPONSABLES DE NINGUNA RECLAMACIÓN, DAÑOS U OTRAS RESPONSABILIDADES,
-YA SEA EN UNA ACCIÓN DE CONTRATO, AGRAVIO O CUALQUIER OTRO MOTIVO,
-QUE SURJA DE O EN CONEXIÓN CON EL SOFTWARE O EL USO U
-OTRO TIPO DE ACCIONES EN EL SOFTWARE.
+Si por alguna razón no deseas que tu proyecto esté bajo las obligaciones referentes a licencia de código abierto, necesitarás una licencia comercial. Si es así, ponte en contacto mediante enviando un mail a info@sincrum.com.
 
 **[Volver al inicio](#tabla-de-contenidos)**
